@@ -1,28 +1,29 @@
-import React, { useState } from 'react';
-import api from '../api/api';
-import { useNavigate } from 'react-router-dom';
-import { Form, Button, Card, Container } from 'react-bootstrap';
+import React, { useState } from "react";
+import api from "../api/api";
+import { useNavigate, Link } from "react-router-dom"; 
+import { Form, Button, Card, Container } from "react-bootstrap";
 
 function Register() {
-  const [form, setForm] = useState({ name: '', email: '', password: '' });
+  const [form, setForm] = useState({ name: "", email: "", password: "" });
   const navigate = useNavigate();
 
-  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
+  const handleChange = (e) =>
+    setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await api.post('/auth/register', form);
-      alert('Registrasi berhasil! Silakan login.');
-      navigate('/login');
+      await api.post("/auth/register", form);
+      alert("Registrasi berhasil! Silakan login.");
+      navigate("/login");
     } catch (err) {
-      alert('Registrasi gagal');
+      alert("Registrasi gagal. Email mungkin sudah terdaftar.");
     }
   };
 
   return (
     <Container className="d-flex justify-content-center align-items-center vh-100">
-      <Card style={{ width: '400px' }} className="p-4">
+      <Card style={{ width: "400px" }} className="p-4">
         <h4 className="text-center mb-3">Register</h4>
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3">
@@ -51,8 +52,13 @@ function Register() {
               onChange={handleChange}
             />
           </Form.Group>
-          <Button type="submit" className="w-100">Register</Button>
+          <Button type="submit" className="w-100">
+            Register
+          </Button>
         </Form>
+        <p className="mt-3 text-center text-muted">
+          Sudah punya akun? <Link to="/login">Login di sini</Link>
+        </p>
       </Card>
     </Container>
   );

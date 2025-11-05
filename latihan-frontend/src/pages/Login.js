@@ -1,26 +1,29 @@
-import React, { useState } from 'react';
-import api from '../api/api';
-import { useNavigate } from 'react-router-dom';
-import { Form, Button, Card, Container } from 'react-bootstrap';
+import React, { useState } from "react";
+import api from "../api/api";
+import { useNavigate, Link } from "react-router-dom";
+import { Form, Button, Card, Container } from "react-bootstrap";
 
 function Login() {
-  const [form, setForm] = useState({ email: '', password: '' });
+  const [form, setForm] = useState({ email: "", password: "" });
   const navigate = useNavigate();
+
+  const handleChange = (e) =>
+    setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await api.post('/auth/login', form);
-      localStorage.setItem('token', res.data.token);
-      navigate('/dashboard');
+      const res = await api.post("/auth/login", form);
+      localStorage.setItem("token", res.data.token);
+      navigate("/dashboard");
     } catch {
-      alert('Email atau password salah');
+      alert("Email atau password salah");
     }
   };
 
   return (
     <Container className="d-flex justify-content-center align-items-center vh-100">
-      <Card style={{ width: '400px' }} className="p-4">
+      <Card style={{ width: "400px" }} className="p-4">
         <h4 className="text-center mb-3">Login</h4>
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3">
@@ -29,7 +32,7 @@ function Login() {
               type="email"
               placeholder="Email"
               value={form.email}
-              onChange={(e) => setForm({ ...form, email: e.target.value })}
+              onChange={handleChange}
             />
           </Form.Group>
           <Form.Group className="mb-3">
@@ -38,11 +41,16 @@ function Login() {
               type="password"
               placeholder="Password"
               value={form.password}
-              onChange={(e) => setForm({ ...form, password: e.target.value })}
+              onChange={handleChange}
             />
           </Form.Group>
-          <Button type="submit" className="w-100">Login</Button>
+          <Button type="submit" className="w-100">
+            Login
+          </Button>
         </Form>
+        <p className="mt-3 text-center text-muted">
+          Belum punya akun? <Link to="/register">Register di sini</Link>
+        </p>
       </Card>
     </Container>
   );
