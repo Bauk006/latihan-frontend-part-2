@@ -87,7 +87,7 @@ npm start
 ## 5. Struktur Project
 
 ```
-Tugas_2_Front-End_Celerates/
+latihan-frontend/
 ├── backend/
 │   ├── package.json               # Konfigurasi dan dependencies backend
 │   ├── server.js                  # Entry point server Express
@@ -98,25 +98,23 @@ Tugas_2_Front-End_Celerates/
 │   └── routes/
 │       ├── auth.js                # Endpoint /api/auth (Register & Login)
 │       └── items.js               # Endpoint /api/items (CRUD)
-├── latihan-frontend/
-│   ├── src/
-│   │   ├── App.js                 # Komponen utama React (routing & layout dasar)
-│   │   ├── index.js               # Entry point aplikasi React
-│   │   ├── api/
-│   │   │   └── api.js             # Konfigurasi Axios (baseURL: http://localhost:5000/api)
-│   │   ├── components/
-│   │   │   ├── FormModal.js       # Komponen modal untuk tambah/edit item
-│   │   │   ├── Navbar.js          # Komponen navigasi utama
-│   │   │   └── PrivateRoute.js    # Proteksi halaman privat (cek token)
-│   │   └── pages/
-│   │       ├── Dashboard.js       # Halaman utama (CRUD item)
-│   │       ├── Login.js           # Halaman login pengguna
-│   │       ├── NotFound.js        # Halaman 404 jika rute tidak ditemukan
-│   │       └── Register.js        # Halaman registrasi pengguna baru
-│   ├── public/                    # File publik dan index.html
-│   ├── package-lock.json          # Lockfile dependencies frontend
-│   └── package.json               # Konfigurasi dan dependencies frontend
-└── README.md
+├── src/
+│   ├── App.js                 # Komponen utama React (routing & layout dasar)
+│   ├── index.js               # Entry point aplikasi React
+│   ├── api/
+│   │   └── api.js             # Konfigurasi Axios (baseURL: http://localhost:5000/api)
+│   ├── components/
+│   │   ├── FormModal.js       # Komponen modal untuk tambah/edit item
+│   │   ├── Navbar.js          # Komponen navigasi utama
+│   │   └── PrivateRoute.js    # Proteksi halaman privat (cek token)
+│   └── pages/
+│       ├── Dashboard.js       # Halaman utama (CRUD item)
+│       ├── Login.js           # Halaman login pengguna
+│       ├── NotFound.js        # Halaman 404 jika rute tidak ditemukan
+│       └── Register.js        # Halaman registrasi pengguna baru
+├── public/                    # File publik dan index.html
+├── package-lock.json          # Lockfile dependencies frontend
+└── package.json               # Konfigurasi dan dependencies frontend
 ```
 
 ## 6. Penyusun Proyek
