@@ -120,3 +120,6 @@ latihan-frontend/
 ## 6. Penyusun Proyek
 
 - **Penyusun:** Muhammad Evan Althafy Marhian
+
+## 7. Link Dokumentasi API (Postman)
+Link: https://documenter.getpostman.com/view/42105778/2sB3WqtzjL
